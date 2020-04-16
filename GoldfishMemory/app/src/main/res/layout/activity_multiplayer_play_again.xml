@@ -6,4 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".MultiplayerPlayAgain">
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/play_again"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="264dp" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/main_menu"
+        tools:layout_editor_absoluteX="169dp"
+        tools:layout_editor_absoluteY="334dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
