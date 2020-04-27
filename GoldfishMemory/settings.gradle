@@ -1,2 +1,2 @@
-rootProject.name='Goldfish Memory'
+rootProject.name='GoldFish'
 include ':app'
