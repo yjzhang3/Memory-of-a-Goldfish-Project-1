@@ -1,7 +1,7 @@
 # Memory-of-a-Goldfish-Project
 
-Team: Goldfish Memory
-Contributors: Yujia Zhang, Lesbeth Roque, Mella Liang, Ekaterina Murzin
+- Team: Goldfish Memory
+- Contributors: Yujia Zhang, Lesbeth Roque, Mella Liang, Ekaterina Murzin
 
 ## About this Project:
 It is a fish-themed memory card game built in Android Studio. The activity files were coded in Java. 
