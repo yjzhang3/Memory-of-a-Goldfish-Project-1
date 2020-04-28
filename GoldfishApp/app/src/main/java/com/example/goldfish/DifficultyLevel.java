@@ -24,7 +24,7 @@ public class DifficultyLevel extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_difficulty_level);
         
-        // enables backbutton to go back to the previous activity
+        // Enables backbutton to go back to the previous activity
         getSupportActionBar().setTitle("Settings");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         
