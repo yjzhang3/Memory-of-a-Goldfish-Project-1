@@ -30,4 +30,6 @@ There are also other ways (which you could find on Google :D) to open the app as
 
 ## Game Tips:
 - Click on "Ready! Go" button in order to start the timer.
+- Cards only shown two at a time. 
+- Once you click a card, you have to click on another card in order for both cards to flip back down or disappear. 
 
