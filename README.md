@@ -9,8 +9,8 @@ It is a fish-themed memory card game built in Android Studio. The activity files
 ## Guide to Running this Application
 
 ### You Need
-Android Studio
-Android Emulator
+- Android Studio
+- Android Emulator
 
 ### Using Android Emulator
 1) Download the file GoldfishMemory-1.0-1.apk from our repo.
