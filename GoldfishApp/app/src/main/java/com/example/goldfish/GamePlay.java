@@ -116,37 +116,6 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
         }
     }
 
-//    public void bestTime() {
-//        SharedPreferences sharedPreferences = getSharedPreferences("diffData", MODE_PRIVATE);
-//        int value = sharedPreferences.getInt("checkedRadioButtonId",0);
-//
-//        SharedPreferences sharedPreferences1 = this.getSharedPreferences("gameTimes",MODE_PRIVATE);
-//        int newTime = sharedPreferences1.getInt("newTime", 0); //get newTime value, 0 is the default
-//        int HardBestTime = sharedPreferences1.getInt("hardBestTime",0);
-//
-//        TextView hardBestTime = (TextView) findViewById(R.id.hardBestTime);
-//
-//        if (value == R.id.radioHard){
-//            if (newTime < HardBestTime) {
-//                String newT= getMyData();
-//                newT = "Hard:" + newT;
-//                hardBestTime.setText(newT);
-//
-//                //save
-//                SharedPreferences.Editor editor = sharedPreferences.edit();
-//                editor.putInt("hardBestTime", newTime);
-//                editor.apply();
-//            }
-//
-//            else {
-//                hardBestTime.setText("Hard" + HardBestTime);
-//                // nothing is saved
-//            }
-//
-//        }
-//    }
-
-
     public String getMyData() {
 
         if (timeLeftMilliseconds == 0) {
