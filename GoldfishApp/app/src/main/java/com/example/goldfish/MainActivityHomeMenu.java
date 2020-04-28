@@ -37,11 +37,11 @@ public class MainActivityHomeMenu extends AppCompatActivity {
             if (mediaPlayer == null) {
                 mediaPlayer = MediaPlayer.create(MainActivityHomeMenu.this, R.raw.bensoundsummer);
             }
-            mediaPlayer.setLooping(true);
+            mediaPlayer.setLooping(true); // Loops again once the music is over
             mediaPlayer.start();
         }
 
-
+        // Button leads to a new activity where game play occurs
         Button MasterStart = (Button)findViewById(R.id.MasterStart);
         MasterStart.setOnClickListener(new View.OnClickListener() {
           @Override
@@ -50,7 +50,8 @@ public class MainActivityHomeMenu extends AppCompatActivity {
                 startActivity(startIntent);
             }
        });
-
+        
+        // Button leads to a new activity 'settings' to change user preferences
         Button settings = (Button) findViewById(R.id.settings);
         settings.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -61,12 +62,6 @@ public class MainActivityHomeMenu extends AppCompatActivity {
             }
         });
     }
-
-    // Show Result -> best time!
-
-    // Not sure where to put this, need to save stuff and call it in the home menu
-
-
 
     // these two are for the home button and main menu button on the phone. Can keep it if you want
     @Override
