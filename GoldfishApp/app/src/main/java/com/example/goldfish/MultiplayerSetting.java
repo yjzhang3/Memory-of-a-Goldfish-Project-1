@@ -1,6 +1,10 @@
 package com.example.goldfish;
 
+// this class was originally designed so that the user could choose single
+// player or multiplayer. But we decided to just do one type of gameplay
+// because the size of the screen doesn't allow more cards than 16.
 
+// this class is currently not in use but could be beneficial for the future.
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;

@@ -56,7 +56,7 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_play);
 
-        // Pause button
+        // Pause game button
         Button fab = findViewById(R.id.pause);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +71,7 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
         countDownButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startTimer();
+                startTimer(); // once the Ready? Go! Button is pressed, the timer starts.
 
             }
         });
@@ -117,6 +117,11 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
     }
 
     public String getMyData() {
+        // a special class that pass the information from Acitivity to a Dialog.
+        // Specifically, because we need to show the user how much time they
+        // spent on the game, the amount of time left in the CountDownTimer is
+        // passed back to WinLoseFragment. This way, when all cards match,
+        // Dialog window will show the finish time.
 
         if (timeLeftMilliseconds == 0) {
             timeUsed = "Time is up!";
@@ -136,32 +141,22 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
         return timeUsed;
     }
 
+    // initialize and show a PauseGameDialog. The details of this Dialog is in
+    // PauseGameFragment.java. It allows the user to pause the game.
     private void PauseGameDialog() {
         PauseGameFragment dialog = new PauseGameFragment();
         dialog.show(getSupportFragmentManager(),"Pause dialog");
 
     }
 
-    // DELETE?
-//    public void showNoticeDialog() {
-//        DialogFragment dialog = new PauseGameFragment();
-//        dialog.show(getSupportFragmentManager(),"PauseMessageDialog");
-//    }
 
-//    private void startStop() {
-//        if (timerRunning) {
-//            stopTimer();
-//        } else {
-//            startTimer();
-//        }
-//    }
-
-    private void stopTimer() {
+    private void stopTimer() { // stop the timer
         countDownTimer.cancel();
         timerRunning = false;
     }
 
-    public void startTimer() {
+    public void startTimer() { // start the timer and show the current time
+        // everytime it is resumed
         countDownTimer = new CountDownTimer(timeLeftMilliseconds, 1000) {
             @Override
             public void onTick(long l) {
@@ -177,11 +172,13 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
         }.start();
 
         timerRunning = true;
-        countDownButton.setVisibility(View.GONE);
+        countDownButton.setVisibility(View.GONE); // once readygo button is pressed,
+        // the button disappears.
     }
 
 
-    public void updateTimer() {
+    public void updateTimer() { // a method to calculate the actual time left
+        // in the CountDownTimer.
         int minutes = (int) timeLeftMilliseconds / 60000;
         int seconds = (int) timeLeftMilliseconds % 60000 / 1000;
 
@@ -194,11 +191,11 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
 
         countDownText.setText(timeLeftText);
 
-        if (minutes == 0 && seconds == 0) {
-            FragmentManager manager = getSupportFragmentManager();
-            WinLoseFragment dialog = new WinLoseFragment();
-            dialog.show(manager, "MessageDialog");
-        }
+//        if (minutes == 0 && seconds == 0) {
+//            FragmentManager manager = getSupportFragmentManager();
+//            WinLoseFragment dialog = new WinLoseFragment();
+//            dialog.show(manager, "MessageDialog");
+//        }
 
         // Setting preferences, use for best time
         SharedPreferences sharedPreferences = this.getSharedPreferences("gameTimes",MODE_PRIVATE);
@@ -208,6 +205,9 @@ public class GamePlay extends AppCompatActivity implements PauseGameFragment.Pau
 
     }
 
+    // The PauseGameDialog fragment will receive a reference to this Activity through the
+    // the Fragment.onAttach() callback, which it uses to call these two methods. Then users'
+    // decisions are saved and passed to Fragment to initialize other Activities.
     @Override
     public void onNoClicked() {
         startTimer();

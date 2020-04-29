@@ -10,6 +10,9 @@ import android.view.View;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
+// another DialogFragment that will be implemented in GamePlay. When the
+// user finishes matching the card, a pop window of this dialog will prompt
+// the user to make a decision, leaving the game or play again.
 public class WinLoseFragment extends DialogFragment {
 
 
@@ -18,13 +21,15 @@ public class WinLoseFragment extends DialogFragment {
 
         GamePlay activity = (GamePlay) getActivity();
         String mydata = activity.getMyData();
+        // call this method to get the time spent on the game from GamePlay.java,
+        // so the player knows the finish time from the pop up window
         View v = LayoutInflater.from(getActivity())
                 .inflate(R.layout.fragment_winlose, null);
 
-
+        //Dialog properties
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
 
-        builder.setMessage(mydata)
+        builder.setMessage(mydata) // showing the amount of time spent on the game
                 .setView(v)
                 .setPositiveButton("Play again!", new DialogInterface.OnClickListener() {
                     @Override
